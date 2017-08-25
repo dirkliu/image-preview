@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>js图片上传预览, 验证</title>
+</head>
+<body>
+  <input type="file" id="testDemo">
+  <script>
+  window.onload = function () {
+    console.log('loaded');
+    document.getElementById("testDemo").onchange = function (event) {
+      var event = event || window.event
+      console.log('file change', event)
+      var path = window.URL.createObjectURL( event.target.files[0]);
+      var img = new Image();
+      img.src = path;
+
+      img.onload = function () {
+        console.log('img:', this.height)
+      }
+      document.body.appendChild(img)
+    }
+  }
+  </script>
+<body>
+</html>
